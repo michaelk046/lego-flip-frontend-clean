@@ -138,7 +138,7 @@ const Posts = () => {
               <div style={{fontSize: '0.8em', color: '#666', marginTop: '10px'}}>
                 Debug: post.user_id = {post.user_id} | currentUserId = {currentUserId}
               </div>
-
+              {console.log("user_id:", post.user_id)}
               {post.user_id == currentUserId && (
                 <button onClick={() => handleDelete(post.id)} style={{ background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px' }}>
                   Delete
