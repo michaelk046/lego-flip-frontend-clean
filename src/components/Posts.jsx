@@ -78,6 +78,9 @@ const Posts = () => {
 
   const currentUserId = token ? JSON.parse(atob(token.split('.')[1])).sub : null;
 
+  console.log("Current User ID from token:", currentUserId);
+  console.log("Token payload:", token ? JSON.parse(atob(token.split('.')[1])) : null);
+
   if (!token) return <p style={{ textAlign: 'center', fontSize: '1.2em' }}>Please <a href="/login" style={{ color: '#06c' }}>login</a> to add flips.</p>;
 
   return (
@@ -131,6 +134,11 @@ const Posts = () => {
                 </h3>
                 <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
               </div>
+
+              <div style={{fontSize: '0.8em', color: '#666', marginTop: '10px'}}>
+                Debug: post.user_id = {post.user_id} | currentUserId = {currentUserId}
+              </div>
+
               {post.user_id === currentUserId && (
                 <button onClick={() => handleDelete(post.id)} style={{ background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px' }}>
                   Delete
