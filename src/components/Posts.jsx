@@ -131,9 +131,11 @@ const Posts = () => {
                 </h3>
                 <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
               </div>
-              <button style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
-                Delete
-              </button>
+              <div>
+                <button style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
+                  Delete
+                </button>
+              </div>
             </div>
             <div style={{ fontSize: '1.2em', margin: '15px 0' }}>
               Bought for <strong>${parseFloat(post.buy_price).toFixed(2)}</strong>
