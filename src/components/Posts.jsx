@@ -131,8 +131,8 @@ const Posts = () => {
                 </h3>
                 <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
               </div>
-              <div style={{ minWidth: '140px', display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-start' }}>
-                <button onClick={() => handleDelete(post.id)} style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
+              <div style={{ background: 'lime', padding: '10px' }}>
+                <button style={{background: '#c00', color: 'white', padding: '8px 16px', borderRadius: '6px'}}>
                   Delete
                 </button>
               </div>
