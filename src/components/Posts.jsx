@@ -78,9 +78,6 @@ const Posts = () => {
 
   const currentUserId = token ? JSON.parse(atob(token.split('.')[1])).sub : null;
 
-  console.log("Current User ID from token:", currentUserId);
-  console.log("Token payload:", token ? JSON.parse(atob(token.split('.')[1])) : null);
-
   if (!token) return <p style={{ textAlign: 'center', fontSize: '1.2em' }}>Please <a href="/login" style={{ color: '#06c' }}>login</a> to add flips.</p>;
 
   return (
@@ -139,11 +136,11 @@ const Posts = () => {
                 Debug: post.user_id = {post.user_id} (type: {typeof post.user_id}) | current = {currentUserId} (type: {typeof currentUserId})
               </div>
 
-              {(post.user_id == currentUserId || post.userId == currentUserId) && (
-                <button onClick={() => handleDelete(post.id)} style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
-                  Delete
-                </button>
-              )}
+              {post.user_id == currentUserId && (
+                  <button onClick={() => handleDelete(post.id)} style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
+                    Delete
+                  </button>
+                )}
             </div>
             <div style={{ fontSize: '1.2em', margin: '15px 0' }}>
               Bought for <strong>${parseFloat(post.buy_price).toFixed(2)}</strong>
