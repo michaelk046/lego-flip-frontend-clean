@@ -131,8 +131,11 @@ const Posts = () => {
                 </h3>
                 <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
               </div>
-              <div>
-                <button style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                <div style={{fontSize: '0.8em', color: 'red'}}>
+                  Debug: post.user_id = {post.user_id}
+                </div>
+                <button style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px', marginTop: '10px'}}>
                   Delete
                 </button>
               </div>
