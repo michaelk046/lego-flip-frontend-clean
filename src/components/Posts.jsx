@@ -137,6 +137,9 @@ const Posts = () => {
                 </button>
               </div>
             </div>
+            <div style={{ background: 'yellow', color: 'black', padding: '10px', marginTop: '20px' }}>
+              TEST ELEMENT - IF YOU SEE THIS, THE CARD IS RENDERING
+            </div>
             <div style={{ fontSize: '1.2em', margin: '15px 0' }}>
               Bought for <strong>${parseFloat(post.buy_price).toFixed(2)}</strong>
               {post.sell_price && <> → Sold for <strong>${parseFloat(post.sell_price).toFixed(2)}</strong></>}
