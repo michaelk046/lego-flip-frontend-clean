@@ -138,9 +138,9 @@ const Posts = () => {
               <div style={{fontSize: '0.8em', color: 'red'}}>
                 Debug: post.user_id = {post.user_id} (type: {typeof post.user_id}) | current = {currentUserId} (type: {typeof currentUserId})
               </div>
-              
-              {post.user_id == currentUserId && (
-                <button onClick={() => handleDelete(post.id)} style={{ background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px' }}>
+
+              {(post.user_id == currentUserId || post.userId == currentUserId) && (
+                <button onClick={() => handleDelete(post.id)} style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
                   Delete
                 </button>
               )}
