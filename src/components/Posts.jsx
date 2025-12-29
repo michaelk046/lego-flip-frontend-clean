@@ -135,12 +135,9 @@ const Posts = () => {
               <div style={{fontSize: '0.8em', color: 'red'}}>
                 Debug: post.user_id = {post.user_id} (type: {typeof post.user_id}) | current = {currentUserId} (type: {typeof currentUserId})
               </div>
-
-
-                  <button onClick={() => handleDelete(post.id)} style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
-                    Delete
-                  </button>
-               
+              <button onClick={() => handleDelete(post.id)} style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
+                Delete
+              </button>
             </div>
             <div style={{ fontSize: '1.2em', margin: '15px 0' }}>
               Bought for <strong>${parseFloat(post.buy_price).toFixed(2)}</strong>
