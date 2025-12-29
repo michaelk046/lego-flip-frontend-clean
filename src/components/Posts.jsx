@@ -131,10 +131,6 @@ const Posts = () => {
                 </h3>
                 <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
               </div>
-
-              <div style={{fontSize: '0.8em', color: 'red'}}>
-                Debug: post.user_id = {post.user_id} (type: {typeof post.user_id}) | current = {currentUserId} (type: {typeof currentUserId})
-              </div>
               <button style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
                 Delete
               </button>
