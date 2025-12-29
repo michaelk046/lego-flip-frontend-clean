@@ -124,13 +124,18 @@ const Posts = () => {
       <div style={{ display: 'grid', gap: '20px' }}>
         {posts.map(post => (
           <div key={post.id} style={{ border: '2px solid #eee', borderRadius: '12px', padding: '20px', background: '#fafafa', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', minWidth: '120px' }}>
-              <div style={{fontSize: '0.8em', color: 'red'}}>
-                Debug: post.user_id = {post.user_id}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.6em', color: '#d42' }}>
+                  LEGO {post.set_number}
+                </h3>
+                <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
               </div>
-              <button style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px', marginTop: '10px'}}>
-                Delete
-              </button>
+              <div style={{ minWidth: '120px', textAlign: 'right' }}>
+                <button onClick={() => handleDelete(post.id)} style={{background: '#c00', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px'}}>
+                  Delete
+                </button>
+              </div>
             </div>
             <div style={{ background: 'yellow', color: 'black', padding: '10px', marginTop: '20px' }}>
               TEST ELEMENT - IF YOU SEE THIS, THE CARD IS RENDERING
