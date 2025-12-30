@@ -99,7 +99,7 @@ const Posts = () => {
                   transition: 'text-decoration 0.2s'
                 }}
           onMouseOver={e => e.currentTarget.style.color = '#a00'}
-          onMouseOut={e => e.currentTarget.style.background = 'white'}>
+          onMouseOut={e => e.currentTarget.style.color = 'white'}>
           Logout
         </button>
       </div>
