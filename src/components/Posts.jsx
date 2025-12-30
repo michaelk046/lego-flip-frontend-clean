@@ -122,33 +122,63 @@ const Posts = () => {
 
       <h2 style={{ color: '#d42', marginTop: '50px' }}>🏆 Community Flips ({posts.length})</h2>
       <div style={{ display: 'grid', gap: '20px' }}>
-        {posts.map(post => (
-          <div key={post.id} style={{ border: '2px solid #eee', borderRadius: '12px', padding: '20px', background: '#fafafa', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.6em', color: '#d42' }}>
-                  LEGO {post.set_number}
-                </h3>
-                <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
+        {posts.length === 0 ? (
+          <p style={{ textAlign: 'center', color: '#888', fontStyle: 'italic', gridColumn: '1 / -1', fontSize: '1.2em' }}>
+            No flips yet — be the first to add one! 🧱
+          </p>
+        ) : (
+          posts.map(post => (
+            <div
+              key={post.id}
+              style={{ border: '2px solid #eee', borderRadius: '12px', padding: '20px', background: '#fafafa', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 12px 20px rgba(0,0,0,0.1)';
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div>
+                  <h3 style={{ margin: '0 0 8px 0', fontSize: '1.6em', color: '#d42' }}>
+                    LEGO {post.set_number}
+                  </h3>
+                  <p style={{ margin: '0 0 12px 0', color: '#555' }}>by <strong>{post.username}</strong></p>
+                </div>
+                <div style={{ minWidth: '120px', display: 'flex', justifyContent: 'flex-end' }}>
+                  {post.user_id == currentUserId && (
+                    <button
+                      onClick={() => handleDelete(post.id)}
+                      style={{
+                        background: '#c00',
+                        color: 'white',
+                        border: 'none',
+                        padding: '8px 16px',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        transition: 'background 0.2s'
+                      }}
+                      onMouseOver={e => e.currentTarget.style.background = '#a00'}
+                      onMouseOut={e => e.currentTarget.style.background = '#c00'}
+                    >
+                      Delete
+                    </button>
+                  )}
+                </div>
               </div>
-              <div style={{ background: 'lime', padding: '10px' }}>
-                <button style={{background: '#c00', color: 'white', padding: '8px 16px', borderRadius: '6px'}}>
-                  Delete
-                </button>
+              <div style={{ fontSize: '1.2em', margin: '15px 0' }}>
+                Bought for <strong>${parseFloat(post.buy_price).toFixed(2)}</strong>
+                {post.sell_price && <> → Sold for <strong>${parseFloat(post.sell_price).toFixed(2)}</strong></>}
+              </div>
+              <div style={{ fontSize: '1.5em' }}>
+                Profit: <ProfitBadge buy={post.buy_price} sell={post.sell_price} />
               </div>
             </div>
-            <div style={{ background: 'yellow', color: 'black', padding: '10px', marginTop: '20px' }}>
-              TEST ELEMENT - IF YOU SEE THIS, THE CARD IS RENDERING
-            </div>
-            <div style={{ fontSize: '1.2em', margin: '15px 0' }}>
-              Bought for <strong>${parseFloat(post.buy_price).toFixed(2)}</strong>
-              {post.sell_price && <> → Sold for <strong>${parseFloat(post.sell_price).toFixed(2)}</strong></>}
-            </div>
-            <div style={{ fontSize: '1.5em' }}>
-              Profit: <ProfitBadge buy={post.buy_price} sell={post.sell_price} />
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
