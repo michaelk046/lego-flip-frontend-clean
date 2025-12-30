@@ -59,6 +59,9 @@ const Posts = () => {
       fetchPosts();
       setMessage('Flip deleted!');
     } catch (err) {
+      console.error("Delete error details:", err);  // ← ADD THIS
+      console.error("Response status:", err.response?.status);  // ← ADD THIS
+      console.error("Response data:", err.response?.data);  // ← ADD THIS
       setMessage('Error deleting flip');
     }
   };
@@ -114,8 +117,23 @@ const Posts = () => {
           onChange={e => setForm({ ...form, sell_price: e.target.value })}
           style={{ padding: '12px', fontSize: '1.1em' }}
         />
-        <button type="submit" style={{ padding: '12px 24px', background: '#06c', color: 'white', border: 'none', borderRadius: '6px', fontWeight: 'bold', fontSize: '1.1em' }}>
-          Add Flip
+        <button
+          type="submit"
+          style={{
+            padding: '12px 24px',
+            background: '#06c',
+            color: 'white',
+            border: 'none',
+            borderRadius: '6px',
+            fontWeight: 'bold',
+            fontSize: '1.1em',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            transition: 'text-decoration 0.2s'
+          }}
+            onMouseOver={e => e.currentTarget.style.background = '#10c'}
+            onMouseOut={e => e.currentTarget.style.background = '#06c'}        >
+          Add
         </button>
       </form>
       {message && <p style={{ textAlign: 'center', color: 'green', fontWeight: 'bold', fontSize: '1.2em' }}>{message}</p>}
