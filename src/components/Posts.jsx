@@ -87,19 +87,20 @@ const Posts = () => {
     <div style={{ maxWidth: '900px', margin: '0 auto', padding: '20px' }}>
       <div style={{ textAlign: 'right', marginBottom: '30px' }}>
         <button onClick={handleLogout}
-                style={{
-                  padding: '10px 20px',
-                  background: '#c42',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '6px',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  transition: 'text-decoration 0.2s'
-                }}
-          onMouseOver={e => e.currentTarget.style.color = '#b3b3b3'}
-          onMouseOut={e => e.currentTarget.style.color = 'white'}>
+            style={{
+              padding: '12px 24px',
+              background: '#c42',
+              color: 'white',
+              border: 'none',
+              borderRadius: '6px',
+              fontWeight: 'bold',
+              fontSize: '1.1em',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              transition: 'text-decoration 0.2s'
+            }}
+          onMouseOver={e => e.currentTarget.style.background = '#b3b3b3'}
+          onMouseOut={e => e.currentTarget.style.background = '#c42'}>
           Logout
         </button>
       </div>
