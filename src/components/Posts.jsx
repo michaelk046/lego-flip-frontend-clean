@@ -104,19 +104,9 @@ const Posts = () => {
         </button>
       </div>
 
-      <h2 style={{
-                  padding: '10px 20px',
-                  background: '#d42',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '6px',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  transition: 'text-decoration 0.2s'
-                }}
-          onMouseOver={e => e.currentTarget.style.background = '#a00'}
-          onMouseOut={e => e.currentTarget.style.background = '#d42'}>➕ Add New Flip</h2>
+      <h2 style={{ color: '#d42', textAlign: 'center', cursor: 'pointer', textDecoration: 'none', transition: 'text-decoration 0.2s' }}
+          onMouseOver={e => e.currentTarget.style.color = '#a00'}
+          onMouseOut={e => e.currentTarget.style.color = '#d42'}>➕ Add New Flip</h2>
       <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr auto', gap: '12px', margin: '30px 0', alignItems: 'end' }}>
         <input
           placeholder="LEGO Set # (e.g. 10305)"
