@@ -86,12 +86,16 @@ const Posts = () => {
   return (
     <div style={{ maxWidth: '900px', margin: '0 auto', padding: '20px' }}>
       <div style={{ textAlign: 'right', marginBottom: '30px' }}>
-        <button onClick={handleLogout} style={{ padding: '10px 20px', background: '#c42', color: 'white', border: 'none', borderRadius: '6px', fontWeight: 'bold' }}>
+        <button onClick={handleLogout} style={{ padding: '10px 20px', background: '#c42', color: 'white', border: 'none', borderRadius: '6px', fontWeight: 'bold' }}
+          onMouseOver={e => e.currentTarget.style.background = '#a00'}
+          onMouseOut={e => e.currentTarget.style.background = '#c42'}        >
           Logout
         </button>
       </div>
 
-      <h2 style={{ color: '#d42', textAlign: 'center' }}>➕ Add New Flip</h2>
+      <h2 style={{ color: '#d42', textAlign: 'center' }}
+          onMouseOver={e => e.currentTarget.style.background = '#a00'}
+          onMouseOut={e => e.currentTarget.style.background = '#d42'}   >➕ Add New Flip</h2>
       <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr auto', gap: '12px', margin: '30px 0', alignItems: 'end' }}>
         <input
           placeholder="LEGO Set # (e.g. 10305)"
